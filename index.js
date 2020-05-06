@@ -1,8 +1,28 @@
 const DISCORD = require('discord.js');
 const bot = new DISCORD.Client;
-const TOKEN = "NzA3Njc1Nzg5MDc1OTM5NDgw.XrMQ6g.qfNp2am9Gd6Nh_eGsjFxpGQJsiE";
+const TOKEN = require('./config.json').token;
+const PREFIX = require('./config.json').prefix;
+
+/* UTILS */
+const logger = require('./util/logging');
+
+/* CMDS */
+const cmd_names = require('./commands/names');
 
 
+
+bot.on('ready', () => {
+    logger.log('Bot deployed!', logger.SUCCESS);
+    logger.log("Status: online", logger.SUCCESS);
+    logger.log(`Authors: ${require('./package.json').contributors}`);
+    let names = [];
+    bot.guilds.cache.forEach(g => {
+        names.push(g.name);
+    });
+    logger.log(`Connected Guilds(${names.length}): [${names}]`);
+    logger.log(`Loaded commands: ${cmd_names}`);
+    logger.log(`Prefix is: ${PREFIX}`);
+});
 
 
 
