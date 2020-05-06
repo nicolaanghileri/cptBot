@@ -1,4 +1,4 @@
-const logger = require('./logging');
+const logger = require('../util/logging');
 
 const MSG_SUCCESS = ":white_check_mark:";
 const MSG_ERROR = ":x:";

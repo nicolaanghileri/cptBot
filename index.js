@@ -5,9 +5,11 @@ const PREFIX = require('./config.json').prefix;
 
 /* UTILS */
 const logger = require('./util/logging');
+const gHelper = require('./helpers/guild-helper');
+const arrHelper = require('./helpers/array-helper');
 
 /* CMDS */
-const cmd_names = require('./commands/names');
+const cmdNames = require('./commands/names');
 
 
 
@@ -20,7 +22,7 @@ bot.on('ready', () => {
         names.push(g.name);
     });
     logger.log(`Connected Guilds(${names.length}): [${names}]`);
-    logger.log(`Loaded commands: ${cmd_names}`);
+    logger.log(`Loaded commands: ${arrHelper.toStr(cmdNames)}`);
     logger.log(`Prefix is: ${PREFIX}`);
 });
 

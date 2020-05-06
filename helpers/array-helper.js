@@ -26,13 +26,13 @@ function membersToStr(members) {
 function toStr(list) {
     let out = "[";
     let len = 0;
-    list.forEach(e => {
+    for (const e in list) {
         if (len == list.length - 1)
             out += e + "]";
         else
             out += e + ", ";
         len++;
-    });
+    }
     return out;
 }
 
