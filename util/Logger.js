@@ -3,7 +3,7 @@ const INFORMATION = "INF";
 const WARNING = "WAR";
 const ERROR = "ERR";
 const BOT = " BOT ";
-const CLIENT = "GUILD";
+const GUILD = "GUILD";
 
 /**
  * Common logger for logging operations.
