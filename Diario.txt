@@ -1,0 +1,3 @@
+|7 Maggio 2020| -> Discussione delle funzionalità del bot (idee generali).
+                -> Organizzazione guild. Ruoli e permessi.
+                -> Creazione canali.
