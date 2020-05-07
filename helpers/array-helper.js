@@ -42,6 +42,7 @@ function membersToStr(members) {
 function toStr(array) {
     let out = "[";
     for (let i = 0; i < array.length; i++) {
+        out += array[i];
         out += (i == array.length - 1) ? ']' : ', ';
     }
     return out;
