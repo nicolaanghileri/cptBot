@@ -9,3 +9,4 @@
                         molte operazioni svolte sulla guild (server).
     (Ismael)        -> Creata classe ArrayHelper - rende piu facile la stampa 
                         per gli array, liste e oggetti.
+    (Ismael)        -> Iniziata la classe Serializer - usata per salvare sui file json.
