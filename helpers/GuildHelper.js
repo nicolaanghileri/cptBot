@@ -1,3 +1,8 @@
+const MSG_SUCCESS = ":white_check_mark:";
+const MSG_ERROR = ":x:";
+const MSG_WARNING = ":warning:";
+const MSG_INFO = ":information_source:";
+
 /**
  * An helper the guild operations.
  * 
@@ -8,13 +13,15 @@ class GuildHelper {
 
     logger = require('../util/Logger');
 
-    constructor() { }
+    static msgTypes = { MSG_SUCCESS, MSG_ERROR, MSG_WARNING, MSG_INFO };
+
+    constructor() { };
 
     /**
      * Sends a message to the specified channel.
      * 
      * @param {string} content the message content
-     * @param {string} type dictates the emoji that will be used before the content. Use the constants of this module. 
+     * @param {string} type dictates the emoji that will be used before the content, use msgTypes
      * @param {GuildChannel} channel the channel to send the message to 
      */
     static async sendMessage(channel, type, content) {
