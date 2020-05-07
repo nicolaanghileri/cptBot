@@ -86,6 +86,30 @@ class GuildHelper {
         this.appendChannelToCategory(newCh, voiceChannel.parent).then(() => { return newCh; });
     }
 
+    /**
+     * Creates a new role in the guild.
+     * 
+     * @param {Guild} guild the guild to create the role to
+     * @param {string} name the name of the role
+     * @param {string} color the color of the role
+     * @param {boolean} hoist dictates if the users having this role should be separeted in the guild's user list 
+     * @param {boolean} mentionable dictates if the user is mentionable
+     * @param {string} reason the reason for the role creation
+     */
+    static async createRole(guild, name, color, hoist, mentionable, reason) {
+        return await guild.roles.create(
+            {
+                data:
+                {
+                    name: name,
+                    color: color,
+                    hoist: hoist,
+                    mentionable: mentionable
+                },
+                reason: reason
+            });
+    }
+
     static async cloneChannel(channel, newName) {
         let _type = channel.type;
         let perms = channel.permissionOverwrites;
@@ -118,27 +142,18 @@ class GuildHelper {
             });
     }
 
-    /**
-     * Creates a new role in the guild.
-     * 
-     * @param {Guild} guild the guild to create the role to
-     * @param {string} name the name of the role
-     * @param {string} color the color of the role
-     * @param {boolean} hoist dictates if the users having this role should be separeted in the guild's user list 
-     * @param {boolean} mentionable dictates if the user is mentionable
-     * @param {string} reason the reason for the role creation
-     */
-    static async createRole(guild, name, color, hoist, mentionable, reason) {
-        return await guild.roles.create(
+    static async cloneRole(role, newName){
+        return await role.guild.roles.create(
             {
                 data:
                 {
-                    name: name,
-                    color: color,
-                    hoist: hoist,
-                    mentionable: mentionable
+                    name: newName,
+                    color: role.color,
+                    hoist: role.hoist,
+                    permissions: role.permissions,
+                    mentionable: role.mentionable
                 },
-                reason: reason
+                reason: "new role"
             });
     }
 
