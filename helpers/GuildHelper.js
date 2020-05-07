@@ -6,10 +6,6 @@
  */
 class GuildHelper {
     logger = require('../util/logging');
-    MSG_SUCCESS = ":white_check_mark:";
-    MSG_ERROR = ":x:";
-    MSG_WARNING = ":warning:";
-    MSG_INFO = ":information_source:";
 
     constructor() { }
 
