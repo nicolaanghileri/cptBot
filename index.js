@@ -7,6 +7,8 @@ const PREFIX = require('./config.json').prefix;
 const logger = require('./util/Logger');
 const gHelper = require('./helpers/GuildHelper');
 const arrHelper = require('./helpers/ListHelper');
+const Serializer = require('./serialization/Serializer.js');
+var ser;
 
 /* CMDS */
 const cmdNames = require('./commands/names');
@@ -24,6 +26,9 @@ bot.on('ready', () => {
     logger.log(`Connected Guilds(${names.length}): ${arrHelper.toStr(names)}`);
     logger.log(`Loaded commands: ${arrHelper.objToStr(cmdNames)}`);
     logger.log(`Prefix is: ${PREFIX}`);
+    ser = new Serializer('./data/students.json', './data/teachers.json', './data/modulez.json');
+    ser.addStudent('dsad', 'sur', 'AA', 2);
+    ser.addTeacher('fasdfffsf', 'ffffff');
 });
 
 bot.on('message', msg => {
@@ -34,18 +39,17 @@ bot.on('message', msg => {
 
     switch (cmd) {
         case cmdNames.TEST:
-            //la tua funzione del comando register.
-            //nicola.register();
-            /*gHelper.cloneCategory(msg.guild, args[0], args[1]).then((output) => {
-                logger.logCommand(msg.author, output, cmdNames.TEST, args);
-            });
+            /*    
+            gHelper.cloneCategory(msg.guild, args[0], args[1]);
             let cat = msg.channel.parent;
             cat.children.forEach(c => {
                 if(c.type === 'voice')
                     gHelper.createTextFromVoiceChannel(msg.guild, c);
             });*/
-
-
+            break;
+        case cmdNames.NEW_TEACHER:
+            break;
+        case cmdNames.NEW_STUDENT:
             break;
     }
 });
