@@ -1,3 +1,9 @@
+/**
+ * Returs a pointed list of all the obj properties.
+ * 
+ * @param {Object} obj the object from which to get properties
+ * @param {String} pointerChar the character at the beginning of each line
+ */
 function getPointedList(obj, pointerChar) {
     if (!pointerChar) { pointerChar = '-'; }
     let out = "";
@@ -7,6 +13,11 @@ function getPointedList(obj, pointerChar) {
     return out;
 }
 
+/**
+ * Return a members array in a string pointed list
+ * 
+ * @param {Array} members the members array
+ */
 function membersToStr(members) {
     let out = "[";
     let len = 0;
@@ -23,6 +34,11 @@ function membersToStr(members) {
     return out;
 }
 
+/**
+ * Returns a formatted text representation of a list.
+ * 
+ * @param {Array} list the list to format
+ */
 function toStr(list) {
     let out = "[";
     let len = 0;
@@ -36,14 +52,19 @@ function toStr(list) {
     return out;
 }
 
-function objToStr(array) {
+/**
+ * Returns a string representation of an Object.
+ * 
+ * @param {Object} obj the object from which to get properties
+ */
+function objToStr(obj) {
     let out = "[";
     let len = 0;
-    for (e in array) {
-        if (len == Object.keys(array).length - 1)
-            out += array[e] + "]";
+    for (e in obj) {
+        if (len == Object.keys(obj).length - 1)
+            out += obj[e] + "]";
         else
-            out += array[e] + ", ";
+            out += obj[e] + ", ";
         len++;
     }
     return out;
