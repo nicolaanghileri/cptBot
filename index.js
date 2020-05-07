@@ -3,10 +3,6 @@ const bot = new DISCORD.Client;
 const TOKEN = require('./config.json').token;
 const PREFIX = require('./config.json').prefix;
 
-/* CONSTANTS */
-const LOGGING = require('./util/constants/logging');
-const MSG_TYPES = require('./util/constants/message-types');
-
 /* UTILS */
 const logger = require('./util/Logger');
 const gHelper = require('./helpers/GuildHelper');
