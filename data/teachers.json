@@ -1,0 +1,44 @@
+{
+  "teachers": [
+    {
+      "name": "Massimo",
+      "surname": "Sartori",
+      "lessons": ["Mod. 105"]
+    },
+    {
+      "name": "Guido",
+      "surname": "Montalbetti",
+      "lessons": ["Mod. 144"]
+    },
+    {
+      "name": "Fabrizio",
+      "surname": "Valsangiacomo",
+      "lessons": ["Mod. 117"]
+    },
+    {
+      "name": "Francesco",
+      "surname": "Mussi",
+      "lessons": ["Mod. 121", "Mod. 239", "Mod. 307"]
+    },
+    {
+      "name": "Luca",
+      "surname": "Muggiasca",
+      "lessons": ["Mod. 122", "Mod. 123"]
+    },
+    {
+      "name": "Gabriele",
+      "surname": "Vigano'",
+      "lessons": ["Mod. 214", "Mod. 431"]
+    },
+    {
+      "name": "Andrea",
+      "surname": "Albertini",
+      "lessons": ["Mod. 226A"]
+    },
+    {
+      "name": "Ugo",
+      "surname": "Bernasconi",
+      "lessons": ["Mod. 318"]
+    }
+  ]
+}

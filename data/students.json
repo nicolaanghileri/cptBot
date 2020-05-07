@@ -1,0 +1,11 @@
+{
+    "students": [
+      {
+        "name": "test",
+        "surname": "student",
+        "group": "I2C",
+        "year": 2
+      }
+    ]
+  }
+  
