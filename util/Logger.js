@@ -23,7 +23,7 @@ class Logger {
     /**
      * The side from wich the operation was executed.
      */
-    static sides = { BOT, CLIENT };
+    static sides = { BOT, GUILD };
 
 
     constructor() {
