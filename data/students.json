@@ -1,11 +1,10 @@
 {
-    "students": [
-      {
-        "name": "test",
-        "surname": "student",
-        "group": "AC",
-        "year": 2
-      }
-    ]
-  }
-  
+  "students": [
+    {
+      "name": "test",
+      "surname": "student",
+      "group": "AC",
+      "year": 2
+    }
+  ]
+}

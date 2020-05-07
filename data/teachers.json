@@ -1,36 +1,36 @@
 {
-  "teachers": [
-    {
-      "name": "Massimo",
-      "surname": "Sartori"
-    },
-    {
-      "name": "Guido",
-      "surname": "Montalbetti"
-    },
-    {
-      "name": "Fabrizio",
-      "surname": "Valsangiacomo"
-    },
-    {
-      "name": "Francesco",
-      "surname": "Mussi"
-    },
-    {
-      "name": "Luca",
-      "surname": "Muggiasca"
-    },
-    {
-      "name": "Gabriele",
-      "surname": "Vigano'"
-    },
-    {
-      "name": "Andrea",
-      "surname": "Albertini"
-    },
-    {
-      "name": "Ugo",
-      "surname": "Bernasconi"
-    }
-  ]
+ "teachers": [
+  {
+   "name": "Massimo",
+   "surname": "Sartori"
+  },
+  {
+   "name": "Guido",
+   "surname": "Montalbetti"
+  },
+  {
+   "name": "Fabrizio",
+   "surname": "Valsangiacomo"
+  },
+  {
+   "name": "Francesco",
+   "surname": "Mussi"
+  },
+  {
+   "name": "Luca",
+   "surname": "Muggiasca"
+  },
+  {
+   "name": "Gabriele",
+   "surname": "Vigano'"
+  },
+  {
+   "name": "Andrea",
+   "surname": "Albertini"
+  },
+  {
+   "name": "Ugo",
+   "surname": "Bernasconi"
+  }
+ ]
 }
