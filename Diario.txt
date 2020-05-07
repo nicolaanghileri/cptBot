@@ -1,3 +1,11 @@
-|7 Maggio 2020| -> Discussione delle funzionalità del bot (idee generali).
-                -> Organizzazione guild. Ruoli e permessi.
-                -> Creazione canali.
+|7 Maggio 2020| 
+        (Nicola, Ismael)-> Discussione delle funzionalità del bot (idee generali). 
+        (Nicola)        -> Organizzazione guild. Ruoli e permessi.
+        (Nicola, Ismael)-> Creazione canali (testing).
+        (Ismael)        -> Implementazione iniziale del bot.
+        (Ismael)        -> Creata classe Logger - logger generale per loggare 
+                            informazioni facilmente.
+        (Ismael)        -> Creata classe GuildHelper - rende piu facile e veloce 
+                            molte operazioni svolte sulla guild (server).
+        (Ismael)        -> Creata classe ArrayHelper - rende piu facile la stampa 
+                            per gli array, liste e oggetti.
