@@ -1,4 +1,4 @@
-const aHelper = require('./../helpers/array-helper');
+const arrHelper = require('./../helpers/array-helper');
 
 const SUCCESS = "SUC";
 const INFORMATION = "INF";
@@ -40,7 +40,7 @@ function logCommand(author, cmdOutput = {}, cmdName, args) {
     let suc = (cmdOutput.success) ? SUCCESS : ERROR;
     let content;
     if (cmdOutput.success)
-        content = `Executed {${cmdName}} successfully with parameters: ${aHelper.toStr(args)}`;
+        content = `Executed {${cmdName}} successfully with parameters: ${arrHelper.toStr(args)}`;
     else
         content = cmdOutput.cause;
     let data = new Date();
