@@ -13,7 +13,7 @@ const CLIENT = "GUILD";
  */
 class Logger {
 
-    arrHelper = require('../helpers/array-helper');
+    arrHelper = require('../helpers/ListHelper');
 
     /**
      * The category or level of a logged operation.
