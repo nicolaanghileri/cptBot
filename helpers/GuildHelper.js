@@ -5,7 +5,8 @@
  * @version 2020.05.07
  */
 class GuildHelper {
-    logger = require('../util/logging');
+
+    logger = require('../util/Logger');
 
     constructor() { }
 
@@ -59,7 +60,7 @@ class GuildHelper {
                 return channel;
             })
             .catch(err => {
-                logger.log(err, logger.ERROR);
+                this.logger.log(err, this.logger.categories.ERROR);
             });
     }
 
@@ -74,7 +75,7 @@ class GuildHelper {
             .then(channel => {
                 return channel;
             })
-            .catch(err => logger.log(err, logger.ERROR));
+            .catch(err => this.logger.log(err, this.logger.categories.ERROR));
         this.appendChannelToCategory(newCh, voiceChannel.parent).then(() => { return newCh; });
     }
 
@@ -86,7 +87,7 @@ class GuildHelper {
                 return c;
             })
             .catch(err => {
-                logger.log(err, logger.ERROR);
+                this.logger.log(err, this.logger.categories.ERROR);
             });
 
     }
@@ -98,7 +99,7 @@ class GuildHelper {
             perms = channel.permissionOverwrites;
         }
         else {
-            logger.log('No matching category found.', logger.ERROR);
+            this.logger.log('No matching category found.', this.logger.categories.ERROR);
             return;
         }
         return await guild.channels.create(newName,
@@ -106,7 +107,7 @@ class GuildHelper {
                 type: 'category',
                 permissionOverwrites: perms
             }).catch(err => {
-                logger.log('Guild unavailable.', logger.ERROR);
+                this.logger.log('Guild unavailable.', this.logger.categories.ERROR);
             });
     }
 
