@@ -68,7 +68,7 @@ class ArrayHelper {
     static objToStr(obj) {
         let out = "[";
         let len = 0;
-        for (e in obj) {
+        for (let e in obj) {
             if (len == Object.keys(obj).length - 1)
                 out += obj[e] + "]";
             else
