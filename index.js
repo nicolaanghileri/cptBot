@@ -10,7 +10,7 @@ const MSG_TYPES = require('./util/constants/message-types');
 /* UTILS */
 const logger = require('./util/Logger');
 const gHelper = require('./helpers/GuildHelper');
-const arrHelper = require('./helpers/array-helper');
+const arrHelper = require('./helpers/ListHelper');
 
 /* CMDS */
 const cmdNames = require('./commands/names');
