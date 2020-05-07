@@ -35,19 +35,14 @@ function membersToStr(members) {
 }
 
 /**
- * Returns a formatted text representation of a list.
+ * Returns a formatted text representation of an array.
  * 
- * @param {Array} list the list to format
+ * @param {Array} array the list to format
  */
-function toStr(list) {
+function toStr(array) {
     let out = "[";
-    let len = 0;
-    for (const e in list) {
-        if (len == list.length - 1)
-            out += e + "]";
-        else
-            out += e + ", ";
-        len++;
+    for (let i = 0; i < array.length; i++) {
+        out += (i == array.length - 1) ? ']' : ', ';
     }
     return out;
 }
