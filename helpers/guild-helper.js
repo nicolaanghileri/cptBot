@@ -38,7 +38,7 @@ function moveMembers(toChannel, guildMembers) {
  * @param {GuildChannel} toChannel the channel to move the members to 
  * @param {GuildMember} guildMembers the member to be moved
  */
-function moveMember(toChannel, guildMember){
+function moveMember(toChannel, guildMember) {
     guildMember.edit({ channel: toChannel });
 }
 
@@ -55,6 +55,35 @@ async function createChannel(guild, name, _type) {
             return channel;
         })
         .catch(err => logger.log(err, logger.ERROR));
+}
+
+async function cloneChannel(channel, newName) {
+    let _type = channel.type;
+    let perms = channel.permissionOverwrites;
+    await channel.guild.channels.create(newName,
+        {
+            type: _type,
+            permissionOverwrites: perms
+        });
+}
+
+async function cloneCategory(guild, catName, newName) {
+    let channel = guild.channels.cache.find(c => c.name == catName && c.type == 'category');
+    let perms;
+    if (channel) {
+        perms = channel.permissionOverwrites;
+    }
+    else {
+        return { newcat: null, success: false, cause: 'No matching category found.' };
+    }
+    let newC = await guild.channels.create(newName,
+        {
+            type: 'category',
+            permissionOverwrites: perms
+        }).catch(err => {
+            logger.log('Guild unavailable.', logger.ERROR);
+        });
+    return { newcat: newC, success: true, cause: null };
 }
 
 /**
@@ -104,6 +133,8 @@ module.exports = {
     moveMembers,
     moveMember,
     createChannel,
+    cloneChannel,
+    cloneCategory,
     createRole,
     appendChannelToCategory,
     MSG_SUCCESS,
