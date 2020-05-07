@@ -40,7 +40,7 @@ function logCommand(author, cmdOutput = {}, cmdName, args) {
     let suc = (cmdOutput.success) ? SUCCESS : ERROR;
     let content;
     if (cmdOutput.success)
-        content = `Executed ${cmdName} successfully with parameters: ${aHelper.toStr(args)}`;
+        content = `Executed {${cmdName}} successfully with parameters: ${aHelper.toStr(args)}`;
     else
         content = cmdOutput.cause;
     let data = new Date();
