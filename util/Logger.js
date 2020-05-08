@@ -9,25 +9,15 @@ const GUILD = "GUILD";
  * Common logger for logging operations.
  * 
  * @author Ismael Trentin
- * @version 2020.05.07
+ * @version 2020.05.08
  */
 class Logger {
 
-    arrHelper = require('../helpers/ListHelper');
-
-    /**
-     * The category or level of a logged operation.
-     */
-    static categories = { SUCCESS, INFORMATION, WARNING, ERROR };
-
-    /**
-     * The side from wich the operation was executed.
-     */
-    static sides = { BOT, GUILD };
-
-
     constructor() {
-        this.types.success = "dsadas";
+        const ListHelper = require('../helpers/ListHelper.js');
+        this.lHelper = new ListHelper();
+        this.categories = { SUCCESS, INFORMATION, WARNING, ERROR };
+        this.sides = { BOT, GUILD };
     }
 
     /**
@@ -38,7 +28,7 @@ class Logger {
      * @param {string} side the side from where the operation was executed. Default is BOT
      * @param {string} category the category of the log. Default is INF
      */
-    static log(msg, category, side) {
+    log(msg, category, side) {
         if (!side) { side = this.sides.BOT; }
         if (!category) { category = this.categories.INFORMATION; }
         let data = new Date();
@@ -49,25 +39,27 @@ class Logger {
     }
 
     /**
-     * Logs informations about the cmdName command execution.
+     * Logs specific informations about a command execution.
      * 
-     * @param {User} author the discord message author
-     * @param {Object} cmdOutput the command output object
+     * @param {User} author the command executor
      * @param {string} cmdName the command name
+     * @param {Array} args the command given arguments
+     * @param {Object} output the command output object.
+     * @param {boolean} output.outcome the command outcome, true positive, false negative.
+     * @param {string} output.cause the command error cause if there is one.
      */
-    static logCommand(author, cmdOutput = {}, cmdName, args) {
+    logCommand(author, cmdName, args, output = {}) {
         let username = author.username;
-        let suc = (cmdOutput.success) ? this.categories.SUCCESS : this.categories.ERROR;
         let content;
-        if (cmdOutput.success)
-            content = `Executed {${cmdName}} successfully with parameters: ${this.arrHelper.toStr(args)}`;
+        if (output.outcome)
+            content = `Executed {${cmdName}} successfully with parameters: ${this.lHelper.toStr(args)}`;
         else
-            content = `Exception for {${cmdName}}: ${cmdOutput.cause}`;
+            content = `Exception for {${cmdName}}: ${output.cause}`;
         let data = new Date();
         let h = (data.getHours().toString().length == 1) ? "0" + data.getHours() : data.getHours();
         let m = (data.getMinutes().toString().length == 1) ? "0" + data.getMinutes() : data.getMinutes();
         let s = (data.getSeconds().toString().length == 1) ? "0" + data.getSeconds() : data.getSeconds();
-        console.log(`[${h}:${m}:${s}][GUILD][${suc}][@${username}] ${content}`);
+        console.log(`[${h}:${m}:${s}][GUILD][${output.outcome}][@${username}] ${content}`);
     }
 }
 
