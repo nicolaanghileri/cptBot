@@ -2,18 +2,17 @@ const DISCORD = require('discord.js');
 const bot = new DISCORD.Client;
 const TOKEN = require('./config.json').token;
 const PREFIX = require('./config.json').prefix;
-
-/* UTILS */
-const logger = require('./util/Logger');
-const gHelper = require('./helpers/GuildHelper');
-const arrHelper = require('./helpers/ListHelper');
+const Logger = require('./util/Logger.js');
+const GuildHelper = require('./helpers/GuildHelper.js');
 const Serializer = require('./serialization/Serializer.js');
-var ser;
-
-/* CMDS */
+const ListHelper = require('./helpers/ListHelper.js');
 const cmdNames = require('./commands/names');
 
-
+//inits
+var logger = new Logger();;
+var ser = new Serializer('./data/students.json', './data/teachers.json', './data/modulez.json');
+var gHelper = new GuildHelper();
+var lHelper = new ListHelper();
 
 bot.on('ready', () => {
     logger.log('Bot deployed!', logger.categories.SUCCESS);
@@ -23,12 +22,45 @@ bot.on('ready', () => {
     bot.guilds.cache.forEach(g => {
         names.push(g.name);
     });
-    logger.log(`Connected Guilds(${names.length}): ${arrHelper.toStr(names)}`);
-    logger.log(`Loaded commands: ${arrHelper.objToStr(cmdNames)}`);
+    logger.log(`Connected Guilds(${names.length}): ${lHelper.toStr(names)}`);
+    logger.log(`Loaded commands: ${lHelper.objToStr(cmdNames)}`);
     logger.log(`Prefix is: ${PREFIX}`);
-    ser = new Serializer('./data/students.json', './data/teachers.json', './data/modulez.json');
-    ser.addStudent('dsad', 'sur', 'AA', 2);
-    ser.addTeacher('fasdfffsf', 'ffffff');
+
+    /*
+    ser.addStudent('dsad', 'sur', 'AA', 2)
+        .then((s) => {
+            logger.log(`Added new student ${s.name} ${s.surname}.`, logger.categories.SUCCESS);
+        })
+        .catch(err => {
+            logger.log(err, logger.categories.ERROR);
+        });
+    let te;
+    ser.addTeacher('fasdfffsf', 'ffffff')
+        .then(t => {
+            logger.log(`Added new teacher ${t.name} ${t.surname}.`, logger.categories.SUCCESS);
+            ser.addMod('Mod ciao', 2, false, t)
+                .then(m => {
+                    logger.log(`Added new module ${m.name} - ${m.teacher.surname} ${m.teacher.name}.`, logger.categories.SUCCESS);
+                })
+                .catch(err => {
+                    logger.log(err, logger.categories.ERROR);
+                });
+        })
+        .catch(err => {
+            logger.log(err, logger.categories.ERROR);
+        });
+        
+
+    ser.getModsTeached('Francesco', 'Mussi')
+        .then(s => {
+            console.log(s);
+            //logger.log(`Added new module ${s.name} with teacher ${s.teacher.name} ${s.teacher.surname}`, logger.categories.SUCCESS);
+        })
+        .catch(err => {
+            logger.log(err, logger.categories.ERROR);
+        });*/
+
+
 });
 
 bot.on('message', msg => {
@@ -50,6 +82,8 @@ bot.on('message', msg => {
         case cmdNames.NEW_TEACHER:
             break;
         case cmdNames.NEW_STUDENT:
+            break;
+        case cmdNames.NEW_MODULE:
             break;
     }
 });
