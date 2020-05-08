@@ -5,8 +5,12 @@
     (Ismael)        -> Implementazione iniziale del bot.
     (Ismael)        -> Creata classe Logger - logger generale per loggare 
                         informazioni facilmente.
-    (Ismael)        -> Creata classe GuildHelper - rende piu facile e veloce 
+    (Ismael)        -> Iniziata e terminata classe GuildHelper - rende piu facile e veloce 
                         molte operazioni svolte sulla guild (server).
-    (Ismael)        -> Creata classe ArrayHelper - rende piu facile la stampa 
+    (Ismael)        -> Iniziata e terminata classe ArrayHelper - rende piu facile la stampa 
                         per gli array, liste e oggetti.
     (Ismael)        -> Iniziata la classe Serializer - usata per salvare sui file json.
+
+|8 Maggio 2020|
+    (Ismael)        -> Terminata la classe Serializer.
+    (Ismael)        -> Aggiornate le classi Logger, ArrayHelper -> ListHelper, Serializer.
