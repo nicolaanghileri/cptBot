@@ -4,18 +4,18 @@ const MSG_WARNING = ":warning:";
 const MSG_INFO = ":information_source:";
 
 /**
- * An helper the guild operations.
+ * An helper for the guild operations.
  * 
  * @author Ismael Trentin
- * @version 2020.05.07
+ * @version 2020.05.08
  */
 class GuildHelper {
 
-    logger = require('../util/Logger');
-
-    static msgTypes = { MSG_SUCCESS, MSG_ERROR, MSG_WARNING, MSG_INFO };
-
-    constructor() { };
+    constructor() {
+        const Logger = require('../util/Logger.js');
+        this.logger = new Logger();
+        this.msgTypes = { MSG_SUCCESS, MSG_ERROR, MSG_WARNING, MSG_INFO };
+    };
 
     /**
      * Sends a message to the specified channel.
@@ -24,7 +24,7 @@ class GuildHelper {
      * @param {string} type dictates the emoji that will be used before the content, use msgTypes
      * @param {GuildChannel} channel the channel to send the message to 
      */
-    static async sendMessage(channel, type, content) {
+    async sendMessage(channel, type, content) {
         if (!type) {
             await channel.send(content);
         } else {
@@ -38,7 +38,7 @@ class GuildHelper {
      * @param {GuildChannel} toChannel the channel to move the members to 
      * @param {Collection<Snowflake, GuildMember>} guildMembers the members to be moved
      */
-    static async moveMembers(toChannel, guildMembers) {
+    async moveMembers(toChannel, guildMembers) {
         await guildMembers.forEach(gm => {
             gm.edit({ channel: toChannel });
         });
@@ -50,7 +50,7 @@ class GuildHelper {
      * @param {GuildChannel} toChannel the channel to move the members to 
      * @param {GuildMember} guildMembers the member to be moved
      */
-    static async moveMember(toChannel, guildMember) {
+    async moveMember(toChannel, guildMember) {
         await guildMember.edit({ channel: toChannel });
     }
 
@@ -61,7 +61,7 @@ class GuildHelper {
      * @param {string} name the name of the channel
      * @param {string} _type the type of the channel, text, voice or category
      */
-    static async createChannel(guild, name, _type) {
+    async createChannel(guild, name, _type) {
         return await guild.channels.create(name, { type: _type })
             .then(channel => {
                 return channel;
@@ -77,7 +77,7 @@ class GuildHelper {
      * @param {Guild} guild the discord server 
      * @param {VoiceChannel} voiceChannel the voice channel name
      */
-    static async createTextFromVoiceChannel(guild, voiceChannel) {
+    async createTextFromVoiceChannel(guild, voiceChannel) {
         let newCh = await guild.channels.create(voiceChannel.name, { type: 'text', permissionOverwrites: voiceChannel.permissionOverwrites })
             .then(channel => {
                 return channel;
@@ -96,7 +96,7 @@ class GuildHelper {
      * @param {boolean} mentionable dictates if the user is mentionable
      * @param {string} reason the reason for the role creation
      */
-    static async createRole(guild, name, color, hoist, mentionable, reason) {
+    async createRole(guild, name, color, hoist, mentionable, reason) {
         return await guild.roles.create(
             {
                 data:
@@ -110,7 +110,7 @@ class GuildHelper {
             });
     }
 
-    static async cloneChannel(channel, newName) {
+    async cloneChannel(channel, newName) {
         let _type = channel.type;
         let perms = channel.permissionOverwrites;
         return await channel.guild.channels.create(newName, { type: _type, permissionOverwrites: perms })
@@ -123,7 +123,7 @@ class GuildHelper {
 
     }
 
-    static async cloneCategory(guild, catName, newName) {
+    async cloneCategory(guild, catName, newName) {
         let channel = guild.channels.cache.find(c => c.name == catName && c.type == 'category');
         let perms;
         if (channel) {
@@ -142,7 +142,7 @@ class GuildHelper {
             });
     }
 
-    static async cloneRole(role, newName){
+    async cloneRole(role, newName) {
         return await role.guild.roles.create(
             {
                 data:
@@ -163,7 +163,7 @@ class GuildHelper {
      * @param {GuildChannel} channel the channel to append
      * @param {CategoryChannel} category the category where the channel is going to be appended
      */
-    static appendChannelToCategory(channel, category) {
+    async appendChannelToCategory(channel, category) {
         return new Promise((resolve, reject) => {
             /*let category = channel.guild.channels.cache.find(c => c.name == categoryName && c.type == "category");
             if (!category) {
