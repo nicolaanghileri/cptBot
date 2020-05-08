@@ -2,7 +2,7 @@
  * Helps with the array and objects string representation.
  * 
  * @author Ismael Trentin
- * @version 2020.05.07
+ * @version 2020.05.08
  */
 class ArrayHelper {
 
@@ -16,7 +16,7 @@ class ArrayHelper {
      * @param {Object} obj the object from which to get properties
      * @param {String} pointerChar the character at the beginning of each line
      */
-    static getPointedList(obj, pointerChar) {
+    getPointedList(obj, pointerChar) {
         if (!pointerChar) { pointerChar = '-'; }
         let out = "";
         for (let prop in obj) {
@@ -30,7 +30,7 @@ class ArrayHelper {
      * 
      * @param {Array} members the members array
      */
-    static membersToStr(members) {
+    membersToStr(members) {
         let out = "[";
         let len = 0;
         if (!(members instanceof Array)) {
@@ -51,7 +51,7 @@ class ArrayHelper {
      * 
      * @param {Array} array the list to format
      */
-    static toStr(array) {
+    toStr(array) {
         let out = "[";
         for (let i = 0; i < array.length; i++) {
             out += array[i];
@@ -65,7 +65,7 @@ class ArrayHelper {
      * 
      * @param {Object} obj the object from which to get properties
      */
-    static objToStr(obj) {
+    objToStr(obj) {
         let out = "[";
         let len = 0;
         for (let e in obj) {
