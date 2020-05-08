@@ -1,112 +1,112 @@
 {
-  "modulez": [
-    {
-      "name": "Mod. 105",
-      "year": 2,
-      "semestral": true,
-      "teacher": {
-        "name": "Massimo",
-        "surname": "Sartori"
-      }
-    },
-    {
-      "name": "Mod. 114",
-      "year": 2,
-      "semestral": false,
-      "teacher": {
-        "name": "Guido",
-        "surname": "Montalbetti"
-      }
-    },
-    {
-      "name": "Mod. 117",
-      "year": 2,
-      "semestral": true,
-      "teacher": {
-        "name": "Fabrizio",
-        "surname": "Valsangiacomo"
-      }
-    },
-    {
-      "name": "Mod. 121",
-      "year": 2,
-      "semestral": false,
-      "teacher": {
-        "name": "Francesco",
-        "surname": "Mussi"
-      }
-    },
-    {
-      "name": "Mod. 122",
-      "year": 2,
-      "semestral": false,
-      "teacher": {
-        "name": "Luca",
-        "surname": "Muggiasca"
-      }
-    },
-    {
-      "name": "Mod. 123",
-      "year": 2,
-      "semestral": false,
-      "teacher": {
-        "name": "Luca",
-        "surname": "Muggiasca"
-      }
-    },
-    {
-      "name": "Mod. 214",
-      "year": 2,
-      "semestral": true,
-      "teacher": {
-        "name": "Gabriele",
-        "surname": "Vigano'"
-      }
-    },
-    {
-      "name": "Mod. 226A",
-      "year": 2,
-      "semestral": false,
-      "teacher": {
-        "name": "Andrea",
-        "surname": "Albertini"
-      }
-    },
-    {
-      "name": "Mod. 239",
-      "year": 2,
-      "semestral": false,
-      "teacher": {
-        "name": "Francesco",
-        "surname": "Mussi"
-      }
-    },
-    {
-      "name": "Mod. 307",
-      "year": 2,
-      "semestral": false,
-      "teacher": {
-        "name": "Francesco",
-        "surname": "Mussi"
-      }
-    },
-    {
-      "name": "Mod. 318",
-      "year": 2,
-      "semestral": false,
-      "teacher": {
-        "name": "Ugo",
-        "surname": "Bernasconi"
-      }
-    },
-    {
-      "name": "Mod. 431",
-      "year": 2,
-      "semestral": true,
-      "teacher": {
-        "name": "Gabriele",
-        "surname": "Vigano'"
-      }
-    }
-  ]
+ "modulez": [
+  {
+   "name": "Mod. 105",
+   "year": 2,
+   "semestral": true,
+   "teacher": {
+    "name": "Massimo",
+    "surname": "Sartori"
+   }
+  },
+  {
+   "name": "Mod. 114",
+   "year": 2,
+   "semestral": false,
+   "teacher": {
+    "name": "Guido",
+    "surname": "Montalbetti"
+   }
+  },
+  {
+   "name": "Mod. 117",
+   "year": 2,
+   "semestral": true,
+   "teacher": {
+    "name": "Fabrizio",
+    "surname": "Valsangiacomo"
+   }
+  },
+  {
+   "name": "Mod. 121",
+   "year": 2,
+   "semestral": false,
+   "teacher": {
+    "name": "Francesco",
+    "surname": "Mussi"
+   }
+  },
+  {
+   "name": "Mod. 122",
+   "year": 2,
+   "semestral": false,
+   "teacher": {
+    "name": "Luca",
+    "surname": "Muggiasca"
+   }
+  },
+  {
+   "name": "Mod. 123",
+   "year": 2,
+   "semestral": false,
+   "teacher": {
+    "name": "Luca",
+    "surname": "Muggiasca"
+   }
+  },
+  {
+   "name": "Mod. 214",
+   "year": 2,
+   "semestral": true,
+   "teacher": {
+    "name": "Gabriele",
+    "surname": "Vigano'"
+   }
+  },
+  {
+   "name": "Mod. 226A",
+   "year": 2,
+   "semestral": false,
+   "teacher": {
+    "name": "Andrea",
+    "surname": "Albertini"
+   }
+  },
+  {
+   "name": "Mod. 239",
+   "year": 2,
+   "semestral": false,
+   "teacher": {
+    "name": "Francesco",
+    "surname": "Mussi"
+   }
+  },
+  {
+   "name": "Mod. 307",
+   "year": 2,
+   "semestral": false,
+   "teacher": {
+    "name": "Francesco",
+    "surname": "Mussi"
+   }
+  },
+  {
+   "name": "Mod. 318",
+   "year": 2,
+   "semestral": false,
+   "teacher": {
+    "name": "Ugo",
+    "surname": "Bernasconi"
+   }
+  },
+  {
+   "name": "Mod. 431",
+   "year": 2,
+   "semestral": true,
+   "teacher": {
+    "name": "Gabriele",
+    "surname": "Vigano'"
+   }
+  }
+ ]
 }
