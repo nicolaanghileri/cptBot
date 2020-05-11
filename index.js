@@ -4,13 +4,13 @@ const TOKEN = require('./config.json').token;
 const PREFIX = require('./config.json').prefix;
 const Logger = require('./util/Logger.js');
 const GuildHelper = require('./helpers/GuildHelper.js');
-const Serializer = require('./serialization/Serializer.js');
+const Jsonator = require('./serialization/Jsonator.js');
 const ListHelper = require('./helpers/ListHelper.js');
 const cmdNames = require('./commands/names');
 
 //inits
-var logger = new Logger();;
-var ser = new Serializer('./data/students.json', './data/teachers.json', './data/modulez.json');
+var logger = new Logger();
+var jtor = new Jsonator('./data/students.json', './data/teachers.json', './data/modulez.json');
 var gHelper = new GuildHelper();
 var lHelper = new ListHelper();
 
@@ -59,7 +59,13 @@ bot.on('ready', () => {
         .catch(err => {
             logger.log(err, logger.categories.ERROR);
         });*/
-
+    jtor.getMod('Mod. 10d5')
+        .then(t => {
+            console.log(t);
+        })
+        .catch(err => {
+            console.log(err);
+        });
 
 });
 
