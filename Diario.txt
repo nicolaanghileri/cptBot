@@ -14,3 +14,4 @@
 |8 Maggio 2020|
     (Ismael)        -> Terminata la classe Serializer.
     (Ismael)        -> Aggiornate le classi Logger, ArrayHelper -> ListHelper, Serializer.
+    (Ismael)        -> Serializer diventa Jsonator.
