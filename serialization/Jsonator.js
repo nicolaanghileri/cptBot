@@ -4,13 +4,13 @@
  * @author Ismael Trentin
  * @version 2020.05.08
  */
-class Serializer {
+class Jsonator {
 
     constructor(studentsPath, teachersPath, modulezPath) {
         this.studentsPath = studentsPath;
         this.teachersPath = teachersPath;
         this.modulezPath = modulezPath;
-        this.logger = require('./../util/Logger');
+        this.logger = require('../util/Logger');
         this.fs = require('fs');
     }
 
@@ -18,8 +18,9 @@ class Serializer {
      * Reads the json file jsonPath and returns it as an object.
      * 
      * @param {string | number | Buffer | URL} jsonPath the path of the json file wich to read from
+     * @returns {object} the json as an object.
      */
-    async getJson(jsonPath) {
+    getJson(jsonPath) {
         let data = "" + this.fs.readFileSync(jsonPath);
         return JSON.parse(data);
     }
@@ -31,6 +32,7 @@ class Serializer {
      * @param {string} surname the student's surname
      * @param {Groups} group the student's group
      * @param {number} year the student's school year
+     * @returns {object} the newly created student object.
      */
     async addStudent(name, surname, group, year) {
         return new Promise((resolve, reject) => {
@@ -69,6 +71,7 @@ class Serializer {
      * 
      * @param {sstring} name the teacher's name
      * @param {string} surname the teacher's surname
+     * @returns {object} the newly created teacher object.
      */
     async addTeacher(name, surname) {
         return new Promise((resolve, reject) => {
@@ -106,7 +109,8 @@ class Serializer {
      * @param {string} name the name of the module
      * @param {number} year the school year where this module is teached.
      * @param {boolean} semestral defines if the module is 6 months long, true yes, false no
-     * @param {Object} teacher the teacher object
+     * @param {object} teacher the teacher object
+     * @returns {object} the newly created module object.
      */
     async addMod(name, year, semestral, teacher = {}) {
         let ts = await this.getTeachers();
@@ -158,6 +162,7 @@ class Serializer {
      * @param {boolean} semestral defines if the module is 6 months long, true yes, false no
      * @param {string} teacherName the teacher name
      * @param {string} teacherSurname the teacher surname
+     * @returns {object} the newly created module object.
      */
     async addModN(name, year, semestral, teacherName, teacherSurname) {
         return new Promise((resolve, reject) => {
@@ -198,7 +203,25 @@ class Serializer {
     }
 
     /**
+    * Returns all the students.
+    * 
+    * @returns {object} all the saved students.
+    */
+    async getStudents() {
+        return new Promise((resolve, reject) => {
+            this.getJson(this.studentsPath)
+                .then(json => {
+                    resolve(json.students);
+                }).catch(err => {
+                    reject(err);
+                });
+        });
+    }
+
+    /**
      * Returns all the teachers.
+     * 
+     * @returns {object} all the saved teachers.
      */
     async getTeachers() {
         return new Promise((resolve, reject) => {
@@ -212,21 +235,9 @@ class Serializer {
     }
 
     /**
-     * Returns all the students.
-     */
-    async getStudents() {
-        return new Promise((resolve, reject) => {
-            this.getJson(this.studentsPath)
-                .then(json => {
-                    resolve(json.students);
-                }).catch(err => {
-                    reject(err);
-                });
-        });
-    }
-
-    /**
      * Returns all the modules.
+     * 
+     * @returns {object} all the saved modules.
      */
     async getMods() {
         return new Promise((resolve, reject) => {
@@ -246,6 +257,7 @@ class Serializer {
      * @param {string} surname the surname of the student
      * @param {string} group the group of the student
      * @param {number} year the school year of the student
+     * @returns {object} the corresponding student object.
      */
     async getStudent(name, surname, group, year) {
         name = name.toLowerCase();
@@ -274,24 +286,19 @@ class Serializer {
      * 
      * @param {string} name the teacher name
      * @param {string} surname the teacher surname
+     * @returns {object} the corresponding teacher object.
      */
     async getTeacher(name, surname) {
         name = name.toLowerCase();
         surname = surname.toLowerCase();
         return new Promise((resolve, reject) => {
-            this.getJson(this.teachersPath)
-                .then(json => {
-                    let teachers = json.teachers;
-                    teachers.forEach(t => {
-                        if (t.name.toLowerCase() == name && t.surname.toLowerCase() == surname) {
-                            resolve(t);
-                        }
-                    });
-                    reject(`No teacher found for ${name} ${surname}`);
-                })
-                .catch(err => {
-                    reject(err);
-                });
+            let teachers = this.getJson(this.teachersPath).teachers;
+            teachers.forEach(t => {
+                if (t.name.toLowerCase() == name && t.surname.toLowerCase() == surname) {
+                    resolve(t);
+                }
+            });
+            reject(`No teacher found for ${name} ${surname}`);
         });
     }
 
@@ -303,19 +310,13 @@ class Serializer {
     async getMod(name) {
         name = name.toLowerCase();
         return new Promise((resolve, reject) => {
-            this.getJson(this.modulezPath)
-                .then(json => {
-                    let modulez = json.modulez;
-                    modulez.forEach(m => {
-                        if (m.name.toLowerCase() == name) {
-                            resolve(m);
-                        }
-                    });
-                    reject(`No module found for ${name}`);
-                })
-                .catch(err => {
-                    reject(err);
-                });
+            let modulez = this.getJson(this.modulezPath).modulez;
+            modulez.forEach(m => {
+                if (m.name.toLowerCase() == name) {
+                    resolve(m);
+                }
+            });
+            reject(`No module found for ${name}`);
         });
     }
 
@@ -325,7 +326,7 @@ class Serializer {
      * @param {string} teacherName the teacher name
      * @param {string} teacherSurname the teacher surname
      */
-    async getModsTeached(teacherName, teacherSurname) {
+    async getModsTeachedBy(teacherName, teacherSurname) {
         teacherName = teacherName.toLowerCase();
         teacherSurname = teacherSurname.toLowerCase();
         let mods = [];
@@ -350,4 +351,4 @@ class Serializer {
     }
 }
 
-module.exports = Serializer;
+module.exports = Jsonator;
