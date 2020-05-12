@@ -7,7 +7,7 @@ const MSG_INFO = ":information_source:";
  * An helper for the guild operations.
  * 
  * @author Ismael Trentin
- * @version 2020.05.08
+ * @version 2020.05.12
  */
 class GuildHelper {
 
@@ -174,6 +174,20 @@ class GuildHelper {
             resolve();
         });
     }
+
+    /**
+     * Sets the guild member nickname to newName.
+     * 
+     * @param {GuildMember} member the guild member
+     * @param {string} newName the new nickname
+     */
+    async changeMemberNickname(member, newName){
+        member.nickname = newName
+    }
+
+
+
+
 }
 
 module.exports = GuildHelper;
