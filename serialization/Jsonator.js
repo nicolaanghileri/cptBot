@@ -7,6 +7,14 @@
  */
 class Jsonator {
 
+    /**
+     * Instantiates a new Jsonator object.
+     * 
+     * @param {string} studentsPath the path to the students json file
+     * @param {string} teachersPath the path to the teachers json file
+     * @param {string} modulezPath the path to the modulez json file
+     * @param {string} timeTablesDirectory the path to the timetables directory
+     */
     constructor(studentsPath, teachersPath, modulezPath, timeTablesDirectory) {
         this.studentsPath = studentsPath;
         this.teachersPath = teachersPath;
@@ -17,7 +25,7 @@ class Jsonator {
     }
 
     /**
-     * Reads the json file jsonPath and returns it as an object.
+     * Reads the json file jsonPath and returns it as a javascript object.
      * 
      * @param {string | number | Buffer | URL} jsonPath the path of the json file wich to read from
      * @returns {object} the json as an object.
