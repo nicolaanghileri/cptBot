@@ -3,7 +3,7 @@
  * modules and timetables.
  * 
  * @author Ismael Trentin
- * @version 2020.05.12
+ * @version 2020.05.13
  */
 class Jsonator {
 
