@@ -17,6 +17,7 @@ var lHelper = new ListHelper();
 bot.on('ready', () => {
     logger.log('Bot deployed!', logger.categories.SUCCESS);
     logger.log("Status: online", logger.categories.SUCCESS);
+    logger.log(`Version: ${require('./package.json').version}`);
     logger.log(`Authors: ${require('./package.json').contributors}`);
     let names = [];
     bot.guilds.cache.forEach(g => {
@@ -44,8 +45,5 @@ bot.on('message', msg => {
             break;
     }
 });
-
-
-
 
 bot.login(TOKEN);
