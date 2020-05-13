@@ -15,3 +15,9 @@
     (Ismael)        -> Terminata la classe Serializer.
     (Ismael)        -> Aggiornate le classi Logger, ArrayHelper -> ListHelper, Serializer.
     (Ismael)        -> Serializer diventa Jsonator.
+
+|12 Maggio 2020|    
+    (Ismael)        -> (Jsonator) Iniziata l'implementazione della possibilita di aggiungere nuove lezioni agli orari.
+
+|13 Maggio 2020|    
+    (Ismael)        -> (Jsonator) Terminata l'implementazione della possibilita di aggiungere nuove lezioni agli orari.
