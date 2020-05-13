@@ -4,7 +4,7 @@ const MSG_WARNING = ":warning:";
 const MSG_INFO = ":information_source:";
 
 /**
- * An helper for the guild operations.
+ * An helper for guild operations.
  * 
  * @author Ismael Trentin
  * @version 2020.05.12
