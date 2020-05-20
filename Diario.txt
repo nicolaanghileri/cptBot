@@ -21,3 +21,7 @@
 
 |13 Maggio 2020|    
     (Ismael)        -> (Jsonator) Terminata l'implementazione della possibilita di aggiungere nuove lezioni agli orari.
+
+|20 Maggio 2020|
+    (Ismael)        -> Creata la classe ClassReminder - ricorda le lezioni agli allievi.
+    (Ismael)        -> Aggiunto il campo 'reminder-channels' in config.js

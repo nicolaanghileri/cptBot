@@ -3,7 +3,7 @@
  * modules and timetables.
  * 
  * @author Ismael Trentin
- * @version 2020.05.13
+ * @version 2020.05.20
  */
 class Jsonator {
 
@@ -20,9 +20,10 @@ class Jsonator {
         this.teachersPath = teachersPath;
         this.modulezPath = modulezPath;
         this.timeTablesDirectory = timeTablesDirectory;
-        this.logger = require('../util/Logger');
         this.fs = require('fs');
     }
+
+
 
     /**
      * Reads the json file jsonPath and returns it as a javascript object.
@@ -85,11 +86,20 @@ class Jsonator {
             this.getJson(this.modulezPath)
                 .then(json => {
                     resolve(json.modulez);
+                    return;
                 }).catch(err => {
                     reject(err);
                     return;
                 });
         });
+    }
+
+    /**
+     * Returns the groups names.
+     */
+    getGroups() {
+        return this.fs.readdirSync(this.timeTablesDirectory, 'utf-8', false)
+                .map(n => n.replace('.json', ''));
     }
 
     /**
@@ -103,6 +113,7 @@ class Jsonator {
             this.getJson((this.timeTablesDirectory + `${groupName.toLowerCase()}` + '.json'))
                 .then(json => {
                     resolve(json.classez);
+                    return;
                 })
                 .catch(() => {
                     reject(`No classes found for: ${groupName}`);
@@ -411,6 +422,7 @@ class Jsonator {
                             if (err) throw err;
                         });
                         resolve(mod);
+                        return;
                     }
                 }).catch(err => {
                     reject(err);
@@ -439,8 +451,8 @@ class Jsonator {
                     let fullname = teacher.surname + ' ' + teacher.name;
                     let newClazz =
                     {
-                        'mod-name': mod.name,
-                        'teacher-fullname': fullname,
+                        'name': mod.name,
+                        'teacherfullname': fullname,
                         start: startTime,
                         end: endTime
                     };
@@ -457,7 +469,7 @@ class Jsonator {
                         if (err) throw err;
                     });
                     resolve(newClazz);
-
+                    return;
                 }).catch(err => {
                     reject(err);
                     return;
