@@ -282,8 +282,6 @@ class Jsonator {
         return true;
     }
 
-
-
     /**
      * Adds a new student to the json file.
      * 
