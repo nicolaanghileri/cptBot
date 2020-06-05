@@ -1,0 +1,40 @@
+{
+  "classez": [
+    {
+      "name": "Mod. 105",
+      "teacherfullname": "Sartori Massimo",
+      "start": {
+        "h": 8,
+        "m": 20
+      },
+      "end": {
+        "h": 9,
+        "m": 50
+      }
+    },
+    {
+      "name": "Mod. 1057",
+      "teacherfullname": "Sartori Massimo",
+      "start": {
+        "h": 13,
+        "m": 15
+      },
+      "end": {
+        "h": 13,
+        "m": 20
+      }
+    },
+    {
+      "name": "Mod. 1057",
+      "teacherfullname": "Tua Madre",
+      "start": {
+        "h": 22,
+        "m": 40
+      },
+      "end": {
+        "h": 100,
+        "m": 20
+      }
+    }
+  ]
+}
