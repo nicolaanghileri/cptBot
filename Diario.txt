@@ -25,3 +25,6 @@
 |20 Maggio 2020|
     (Ismael)        -> Creata la classe ClassReminder - ricorda le lezioni agli allievi.
     (Ismael)        -> Aggiunto il campo 'reminder-channels' in config.js
+
+|05 Giugno 2020|    
+    (Ismael)        -> Terminata la classe ClassReminder.
