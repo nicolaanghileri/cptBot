@@ -1,4 +1,7 @@
 {
-    "token": "NzA3Njc1Nzg5MDc1OTM5NDgw.XrMQ6g.qfNp2am9Gd6Nh_eGsjFxpGQJsiE",
-    "prefix": "-"
+  "token": "NzA3Njc1Nzg5MDc1OTM5NDgw.XrMQ6g.qfNp2am9Gd6Nh_eGsjFxpGQJsiE",
+  "prefix": "-",
+  "reminder-channels": {
+    "i2ac": "712712130721480806"
+  }
 }
