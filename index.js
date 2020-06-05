@@ -6,6 +6,7 @@ const Logger = require('./util/Logger.js');
 const GuildHelper = require('./helpers/GuildHelper.js');
 const Jsonator = require('./serialization/Jsonator.js');
 const ListHelper = require('./helpers/ListHelper.js');
+const ClassReminder = require('./routines/ClassReminder.js');
 const cmdNames = require('./commands/names');
 
 //inits
@@ -13,6 +14,7 @@ var logger = new Logger();
 var jtor = new Jsonator('./data/students.json', './data/teachers.json', './data/modulez.json', './data/timetables/');
 var gHelper = new GuildHelper();
 var lHelper = new ListHelper();
+var reminder = new ClassReminder();
 
 bot.on('ready', () => {
     logger.log('Bot deployed!', logger.categories.SUCCESS);
@@ -36,6 +38,7 @@ bot.on('message', msg => {
 
     switch (cmd) {
         case cmdNames.TEST:
+            reminder.remindNextClass('i2ac', msg.channel);
             break;
         case cmdNames.NEW_TEACHER:
             break;
@@ -46,4 +49,29 @@ bot.on('message', msg => {
     }
 });
 
+
+
 bot.login(TOKEN);
+setInterval(() => {
+    let groups = jtor.getGroups();
+
+    groups.forEach(g => {
+        jtor.getClassezFor(g)
+            .then(cz => {
+                cz.forEach(c => {
+                    let now = new Date();
+                    let h = now.getHours();
+                    let m = now.getMinutes();
+                    if (h == c.start.h && m == c.start.m - 5) {
+                        let channel;
+                        channel = bot.guilds.cache.first().channels.resolve(require('./config.json')["reminder-channels"][g]);
+                        reminder.remindNextClass(c, channel);
+                    }
+                });
+            });
+    });
+
+
+
+
+}, 60000);
