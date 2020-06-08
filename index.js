@@ -38,23 +38,15 @@ bot.on('message', msg => {
 
     switch (cmd) {
         case cmdNames.TEST:
-            reminder.remindNextClass('i2ac', msg.channel);
-            break;
-        case cmdNames.NEW_TEACHER:
-            break;
-        case cmdNames.NEW_STUDENT:
-            break;
-        case cmdNames.NEW_MODULE:
             break;
     }
 });
 
 
-
+/* REMINDER ROUTINE */
 bot.login(TOKEN);
 setInterval(() => {
     let groups = jtor.getGroups();
-
     groups.forEach(g => {
         jtor.getClassezFor(g)
             .then(cz => {
@@ -70,8 +62,4 @@ setInterval(() => {
                 });
             });
     });
-
-
-
-
 }, 60000);
