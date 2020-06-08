@@ -1,6 +1,6 @@
 {
   "name": "cptbot",
-  "version": "1.0.77",
+  "version": "1.1.77",
   "description": "A discord bot for online teaching.",
   "main": "index.js",
   "scripts": {
