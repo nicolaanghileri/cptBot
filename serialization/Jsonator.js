@@ -452,7 +452,7 @@ class Jsonator {
                     let newClazz =
                     {
                         'name': mod.name,
-                        'teacherfullname': fullname,
+                        'teacher_full_name': fullname,
                         start: startTime,
                         end: endTime
                     };
