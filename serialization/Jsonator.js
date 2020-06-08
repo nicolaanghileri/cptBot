@@ -99,7 +99,7 @@ class Jsonator {
      */
     getGroups() {
         return this.fs.readdirSync(this.timeTablesDirectory, 'utf-8', false)
-                .map(n => n.replace('.json', ''));
+            .map(n => n.replace('.json', ''));
     }
 
     /**
@@ -138,14 +138,34 @@ class Jsonator {
         return new Promise((resolve, reject) => {
             this.getJson(this.studentsPath)
                 .then(json => {
-                    let students = json.students;
-                    students.forEach(s => {
+                    json.students.forEach(s => {
                         if (s.name.toLowerCase() == name && s.surname.toLowerCase() == surname
                             && s.group.toLowerCase() == group && s.year == year) {
                             resolve(s);
                         }
                     });
                     reject(`No student found for ${name} ${surname} ${group} ${year}`);
+                    return;
+                })
+                .catch(err => {
+                    reject(err);
+                    return;
+                });
+        });
+    }
+
+    async getStudent(clientId) {
+        return new Promise((resolve, reject) => {
+            this.getJson(this.studentsPath)
+                .then(json => {
+                    json.students.forEach(s => {
+                        if (s.client_id === clientId) {
+                            resolve(s);
+                            return;
+                        }
+
+                    });
+                    reject(`No student found with id ${clientId}.`);
                     return;
                 })
                 .catch(err => {
@@ -300,15 +320,17 @@ class Jsonator {
      * @param {string} surname the student's surname
      * @param {Groups} group the student's group
      * @param {number} year the student's school year
+     * @param {string} clientId the student's discord client id
      * @returns {object} the newly created student object.
      */
-    async addStudent(name, surname, group, year) {
+    async addStudent(name, surname, group, year, clientId) {
         return new Promise((resolve, reject) => {
             let student = {
                 name: name,
                 surname: surname,
                 group: group,
-                year: year
+                year: year,
+                client_id: clientId
             };
             this.getJson(this.studentsPath)
                 .then(json => {
@@ -318,6 +340,10 @@ class Jsonator {
                         if (s.name == name && s.surname == surname && s.group == group) {
                             skip = true;
                             reject(`The student ${name} ${surname} in group ${group} already exists.`);
+                            return;
+                        } else if (s.client_id == clientId) {
+                            skip = true;
+                            reject(`A discord client already exists with the id ${clientId}`);
                             return;
                         }
                     });
