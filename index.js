@@ -38,7 +38,6 @@ bot.on('message', msg => {
 
     switch (cmd) {
         case cmdNames.TEST:
-            
             break;
     }
 });
