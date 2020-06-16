@@ -181,13 +181,9 @@ class GuildHelper {
      * @param {GuildMember} member the guild member
      * @param {string} newName the new nickname
      */
-    async changeMemberNickname(member, newName){
-        member.nickname = newName
+    changeMemberNickname(member, newName) {
+        member.setNickname(newName);
     }
-
-
-
-
 }
 
 module.exports = GuildHelper;
