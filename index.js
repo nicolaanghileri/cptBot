@@ -38,9 +38,23 @@ bot.on('message', msg => {
 
     switch (cmd) {
         case cmdNames.TEST:
+            jtor.getStudent('708026018861940897')
+                .then(student => {
+                    if (msg.guild.members.cache.get(bot.user.id).hasPermission('MANAGE_NICKNAMES')) {
+                        msg.member.setNickname(student.name + student.surname)
+                            .then(m => msg.reply(m.nickname));
+
+                    }
+
+
+
+
+                })
+                .catch(e => logger.log(e, logger.categories.ERROR));
             break;
     }
 });
+
 
 
 /* REMINDER ROUTINE */

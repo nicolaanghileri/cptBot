@@ -52,6 +52,7 @@ class Jsonator {
             this.getJson(this.studentsPath)
                 .then(json => {
                     resolve(json.students);
+                    return;
                 }).catch(err => {
                     reject(err);
                     return;
@@ -69,6 +70,7 @@ class Jsonator {
             this.getJson(this.teachersPath)
                 .then(json => {
                     resolve(json.teachers);
+                    return;
                 }).catch(err => {
                     reject(err);
                     return;
@@ -142,6 +144,7 @@ class Jsonator {
                         if (s.name.toLowerCase() == name && s.surname.toLowerCase() == surname
                             && s.group.toLowerCase() == group && s.year == year) {
                             resolve(s);
+                            return;
                         }
                     });
                     reject(`No student found for ${name} ${surname} ${group} ${year}`);
@@ -190,6 +193,7 @@ class Jsonator {
             teachers.forEach(t => {
                 if (t.name.toLowerCase() == name && t.surname.toLowerCase() == surname) {
                     resolve(t);
+                    return;
                 }
             });
             reject(`No teacher found for ${name} ${surname}`);
@@ -209,6 +213,7 @@ class Jsonator {
             modulez.forEach(m => {
                 if (m.name.toLowerCase() == name) {
                     resolve(m);
+                    return;
                 }
             });
             reject(`No module found for ${name}`);
