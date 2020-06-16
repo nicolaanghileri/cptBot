@@ -28,3 +28,5 @@
 
 |05 Giugno 2020|    
     (Ismael)        -> Terminata la classe ClassReminder.
+|06 Giugno 2020|
+    (Nicola)        -> Termintato file di Login.

@@ -8,7 +8,7 @@ const Jsonator = require('./serialization/Jsonator.js');
 const ListHelper = require('./helpers/ListHelper.js');
 const ClassReminder = require('./routines/ClassReminder.js');
 const cmdNames = require('./commands/names');
-
+const login = require('./commands/login');
 //inits
 var logger = new Logger();
 var jtor = new Jsonator('./data/students.json', './data/teachers.json', './data/modulez.json', './data/timetables/');
@@ -38,6 +38,9 @@ bot.on('message', msg => {
 
     switch (cmd) {
         case cmdNames.TEST:
+            break;
+        case cmdNames.LOGIN:
+            login.newUser(msg);
             break;
     }
 });
