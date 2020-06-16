@@ -120,7 +120,7 @@ class ClassReminder {
                         },
                         {
                             name: 'Teacher:',
-                            value: clazz.teacherfullname,
+                            value: clazz.teacher_full_name,
                             inline: false,
                         },
                     ],
