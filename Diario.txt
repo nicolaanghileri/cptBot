@@ -28,5 +28,7 @@
 
 |05 Giugno 2020|    
     (Ismael)        -> Terminata la classe ClassReminder.
+
 |06 Giugno 2020|
-    (Nicola)        -> Termintato file di Login.
+    (Nicola)        -> Commit file di Login. (10 ore)
+                    -> Commit della parte di xampp per verifica email. (4 ore)
